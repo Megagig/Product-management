@@ -21,11 +21,15 @@ mongoose
   });
 
 // Define the port number
-const port = 3000;
+// const port = 3000;
 app.use(express.json()); // JSON Body parser middleware
 app.use('/api/v1/products', productRoutes);
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+const port = process.env.PORT || 3000;
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
+}
+module.exports = app; // Export the app for testing
