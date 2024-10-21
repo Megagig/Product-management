@@ -1,5 +1,9 @@
 // Import the express module
+
 const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 const productRoutes = require('./routes/productRoutes');
 
 // Create an Express application
