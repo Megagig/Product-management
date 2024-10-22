@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const path = require('path'); // Import the path module
 // Load environment variables from .env file
 dotenv.config();
 
@@ -28,7 +29,12 @@ app.use(express.json()); // JSON Body parser middleware
 app.use('/api/v1/products', productRoutes);
 
 // Serve the Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Home route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'home.html'));
+});
 
 // Start the server
 const port = process.env.PORT || 3000;
