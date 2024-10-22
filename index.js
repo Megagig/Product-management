@@ -5,10 +5,12 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 // Load environment variables from .env file
 dotenv.config();
-const productRoutes = require('./routes/productRoutes');
 
 // Create an Express application
 const app = express();
+
+const productRoutes = require('./routes/productRoutes');
+const { swaggerSpec, swaggerUi } = require('./swagger');
 
 // Connect to MongoDB
 mongoose
@@ -25,6 +27,9 @@ mongoose
 app.use(express.json()); // JSON Body parser middleware
 app.use('/api/v1/products', productRoutes);
 
+// Serve the Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 // Start the server
 const port = process.env.PORT || 3000;
 if (process.env.NODE_ENV !== 'test') {
@@ -32,4 +37,5 @@ if (process.env.NODE_ENV !== 'test') {
     console.log(`Server is running on http://localhost:${port}`);
   });
 }
+
 module.exports = app; // Export the app for testing
