@@ -24,10 +24,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Product Management <a name="about-project"></a>
+# 📖 Product Management API <a name="about-project"></a>
 
-Product Management System
-Build a backend API with Node.js/ Express for a simple product management system.The API will allow users to add, retrieve, update, and delete products. Functionality
+A Product Management API Built with Node.js/ Express for a simple product management system.The API will allow users to add, retrieve, update, and delete products. Functionality
 
 ## 🛠 Built With <a name="built-with"> </a>
 
