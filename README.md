@@ -63,7 +63,7 @@ A Product Management API Built with Node.js/ Express for a simple product manage
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](coming soon)
+- [Live Demo Link](https://pman-api.up.railway.app/)
 
 <!-- GETTING STARTED -->
 
